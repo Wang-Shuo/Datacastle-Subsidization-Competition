@@ -60,43 +60,51 @@ print('merge library feature done.')
 # merge consume features
 ## consume by id
 consume_by_id = pd.read_csv("input/processed/consume_by_id.csv")
-consume_by_id.fillna(0, inplace=True)
 train_test = pd.merge(train_test, consume_by_id, how="left", on="stu_id")
+for col in list(train_test.columns[-7:]):
+    train_test[col] = train_test[col].fillna(0)
 
 # consume by type
 consume_by_type = pd.read_csv("input/processed/consume_by_type.csv")
-consume_by_type.fillna(0, inplace=True)
 train_test = pd.merge(train_test, consume_by_type, how="left", on="stu_id")
+for col in list(train_test.columns[-24:]):
+    train_test[col] = train_test[col].fillna(0)
 
 # consume by month
 consume_by_month = pd.read_csv("input/processed/consume_by_month.csv")
-consume_by_month.fillna(0, inplace=True)
 train_test = pd.merge(train_test, consume_by_month, how="left", on="stu_id")
+for col in list(train_test.columns[-5:]):
+    train_test[col] = train_test[col].fillna(0)
 
 # consume on summer vacation
 consume_july_august = pd.read_csv("input/processed/consume_july_august.csv")
-consume_july_august.fillna(0, inplace=True)
 train_test = pd.merge(train_test, consume_july_august, how="left", on="stu_id")
+for col in list(train_test.columns[-4:]):
+    train_test[col] = train_test[col].fillna(0)
 
 # consume by weekend
 consume_by_weekend = pd.read_csv("input/processed/consume_by_weekend.csv")
-consume_by_weekend.fillna(0, inplace=True)
 train_test = pd.merge(train_test, consume_by_weekend, how="left", on="stu_id")
+for col in list(train_test.columns[-4:]):
+    train_test[col] = train_test[col].fillna(0)
 
 # consume_interest_dining
 consume_interest_dining = pd.read_csv("input/processed/consume_interest_dining.csv")
-consume_interest_dining.fillna(0, inplace=True)
 train_test = pd.merge(train_test, consume_interest_dining, how="left", on="stu_id")
+for col in list(train_test.columns[-68:]):
+    train_test[col] = train_test[col].fillna(0)
 
 # consume interest supermarket
 consume_interest_super = pd.read_csv("input/processed/consume_interest_super.csv")
-consume_interest_super.fillna(0, inplace=True)
 train_test = pd.merge(train_test, consume_interest_super, how="left", on="stu_id")
+for col in list(train_test.columns[-10:]):
+    train_test[col] = train_test[col].fillna(0)
 
 # consume by hour
 consume_by_hour = pd.read_csv("input/processed/consume_by_hour.csv")
-consume_by_hour.fillna(0, inplace=True)
 train_test = pd.merge(train_test, consume_by_hour, how="left", on="stu_id")
+for col in list(train_test.columns[-96:]):
+    train_test[col] = train_test[col].fillna(0)
 
 print('merge consume feature done.')
 
