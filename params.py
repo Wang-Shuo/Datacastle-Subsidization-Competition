@@ -21,6 +21,7 @@ weight_1000_gdbt = 40
 weight_1500_gdbt = 50
 weight_2000_gdbt = 90
 
+
 ########################################## Random Forest
 n_estimators_rf = 750
 max_depth_rf = 50
@@ -37,11 +38,11 @@ weight_1000_rf = 59
 weight_1500_rf = 111
 weight_2000_rf = 130
 
-cw_rf = {"0": weight_0_rf, "1000": weight_1000_rf, "1500": weight_1500_rf, "2000": weight_2000_rf}
+cw_rf = {0: weight_0_rf, 1000: weight_1000_rf, 1500: weight_1500_rf, 2000: weight_2000_rf}
 
 
 #########################################  xgboosting parameters
-n_estimators_xgb = 10  # 400
+n_estimators_xgb = 10
 fearning_rate_xgb = 0.14
 max_depth_xgb = 3
 colsample_bytree_xgb = 0.09

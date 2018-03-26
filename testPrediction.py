@@ -2,7 +2,7 @@
 import pandas as pd
 import os
 import params
-from models import *
+from models import gradient_boosting, random_forest
 
 train_df = pd.read_csv('input/processed/train.csv')
 test_df = pd.read_csv('input/processed/test.csv')

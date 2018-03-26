@@ -7,13 +7,13 @@ def learn(x, y, test_x):
     weight_list = []
 
     for j in range(len(y)):
-        if y[j] == "0":
+        if y[j] == 0:
             weight_list.append(params.weight_0_gdbt)
-        if y[j] == "1000":
+        if y[j] == 1000:
             weight_list.append(params.weight_1000_gdbt)
-        if y[j] == "1500":
+        if y[j] == 1500:
             weight_list.append(params.weight_1500_gdbt)
-        if y[j] == "2000":
+        if y[j] == 2000:
             weight_list.append(params.weight_2000_gdbt)
 
     clf = GradientBoostingClassifier(loss='deviance', n_estimators=params.n_estimators_gdbt,
