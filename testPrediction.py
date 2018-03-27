@@ -27,7 +27,7 @@ test_class_result = pd.DataFrame(columns=["studentid","subsidy"])
 test_class_result.studentid = test_ids
 test_class_result.subsidy = predict_y_list
 test_class_result.subsidy = test_class_result['subsidy'].astype(int)
-test_class_result_savepath = 'output/class_' + model + '.csv'
+test_class_result_savepath = 'output/test_class_' + model + '.csv'
 test_class_result.to_csv(test_class_result_savepath, index=False)
 
 test_probe_result = pd.DataFrame(columns=["studentid","sub0","sub1000","sub1500","sub2000"])
@@ -36,5 +36,5 @@ test_probe_result.sub0 = predict_y_prob_list[:, 0]
 test_probe_result.sub1000 = predict_y_prob_list[:, 1]
 test_probe_result.sub1500 = predict_y_prob_list[:, 2]
 test_probe_result.sub2000 = predict_y_prob_list[:, 3]
-test_probe_result_savepath = 'output/probe_' + model + '.csv'
+test_probe_result_savepath = 'output/test_probe_' + model + '.csv'
 test_probe_result.to_csv(test_probe_result_savepath, index=False)

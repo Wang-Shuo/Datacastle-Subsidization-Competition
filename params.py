@@ -53,6 +53,10 @@ reg_alpha_xgb = 0
 reg_lambda_xgb = 1
 
 weight_0_xgb = 2
-weight_1000_xgb = 40  # 30
-weight_1500_xgb = 60  # 60
-weight_2000_xgb = 75  # 90
+weight_1000_xgb = 40
+weight_1500_xgb = 60
+weight_2000_xgb = 75
+
+
+########################################### blending vote weight
+voteWeight = [2, 1, 1]

@@ -4,7 +4,7 @@ from sklearn.model_selection import StratifiedKFold
 import pandas as pd
 
 import params
-from models import gradient_boosting, random_forest
+from models import gradient_boosting, random_forest, xgboosting
 
 def validate(predict_y_list, actual_y_list):
 
@@ -59,6 +59,9 @@ def run_model(X, y, model):
         num_predict_dict[subsidy] = 0
         num_actual_dict[subsidy] = 0
 
+    # the txt file for saving cv results
+    w = open('output/' + "train_class_" + model + ".txt", 'w')
+
     skf = StratifiedKFold(n_splits=params.num_cv, shuffle=True, random_state=params.random_seed)
     for train_idx, valid_idx in skf.split(X, y):
         start = time.time()
@@ -72,6 +75,9 @@ def run_model(X, y, model):
             predict_y_list, predict_y_prob_list = random_forest.learn(X_train, y_train, X_valid)
         elif model == 'xgb':
             predict_y_list, predict_y_prob_list = xgboosting.learn(X_train, y_train, X_valid)
+
+        for label, prediction in zip(y_valid, predict_y_list):
+            w.write(str(label) + ',' + str(prediction) + '\n')
 
         num_right_dict_part, num_predict_dict_part, num_actual_dict_part = validate(predict_y_list, y_valid)
 
@@ -112,6 +118,8 @@ def run_model(X, y, model):
                                        "   num_actual: " + str(num_actual) + \
                                        "   f1: " + str(F1))
     print('avg macro F1: ' + str(avg_macro_f1))
+
+    w.close()
 
     return avg_macro_f1
 
